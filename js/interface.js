@@ -121,18 +121,54 @@
 			$(this).validate({
 				errorClass: 'error',
 			    submitHandler: function(form){
-		        	$.ajax({
-			            type: "POST",
-			            url:"mail.php",
-			            data: $(form).serialize(),
-			            success: function() {
-		                	$('#success-message').show();
-		                },
-
-		                error: function(){
-		                	$('#error-message').show();
-			            }
-			        });
+                    console.log('submit handler')
+                    var name = document.getElementById('name').value
+                    var email = document.getElementById('email').value
+                    var message = document.getElementById('message').value
+                    var details = `Name : ${name}"\n" 
+                    Email : ${email}"\n"
+                    Message : ${message}`;
+                
+                
+                    Email.send({
+                        Host: "smtp.elasticemail.com",
+                        Username: 'dev.testmindtest@gmail.com',
+                        Password: '61286E4805254D5CB292672F5A0623572E6A',
+                        To: '1993anilyadav@gmail.com',
+                        From: "dev.testmindtest@gmail.com",
+                        Subject: "Contact US | New Lead " + name,
+                        Body: details
+                    }).then(function (message, error) {
+                        console.log('message', message,error)
+                        // alert("Email successfully sent")
+                
+                        document.getElementById('send').innerHTML='Email successfully send';
+                        document.getElementById('reject').innerHTML= error ? error : '';
+                        console.log('test')
+                    }); var name = document.getElementById('name').value
+                    var email = document.getElementById('email').value
+                    var message = document.getElementById('message').value
+                    var details = `Name : ${name}"\n" 
+                    Email : ${email}"\n"
+                    Message : ${message}`;
+                
+                
+                    Email.send({
+                        Host: "smtp.elasticemail.com",
+                        Username: 'dev.testmindtest@gmail.com',
+                        Password: '61286E4805254D5CB292672F5A0623572E6A',
+                        To: '1993anilyadav@gmail.com',
+                        From: "dev.testmindtest@gmail.com",
+                        Subject: "Contact US | New Lead " + name,
+                        Body: details
+                    }).then(function (message, error) {
+                        console.log('message', message,error)
+                        // alert("Email successfully sent")
+                
+                        document.getElementById('send').innerHTML='Email successfully send';
+                        document.getElementById('reject').innerHTML= error ? error : '';
+                        console.log('test')
+                    });
 			    }
 			});
 		});
