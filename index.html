@@ -16,8 +16,11 @@
 	<script type="text/javascript" src="js_animation/dat.gui.min.js"></script>
 	<!-- Animation Css  -->
 	<link rel="stylesheet" href="js_animation/style.css">
-
-
+	<!-- STMP server script -->
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	
+	<!-- Email Script -->
+	<script src="mail.js"></script>
 
 	<title>CHIRAG HASIJA </title>
 </head>
@@ -657,19 +660,19 @@
 					<div class="mt-5">
 						<form class="js-ajax-form">
 							<div class="form-group">
-								<input type="text" name="name" class="form-control" placeholder="Name">
+								<input type="text" id="name" name="name" class="form-control" placeholder="Name">
 							</div>
 							<div class="form-group">
-								<input type="email" name="email" class="form-control" required="" placeholder="Email *">
+								<input type="email" id="email" name="email" class="form-control"  placeholder="Email *">
 							</div>
 							<div class="form-group">
-								<textarea rows="3" name="message" class="form-control" placeholder="Message"></textarea>
+								<textarea rows="3" id="message" name="message" class="form-control" placeholder="Message"></textarea>
 							</div>
 							<div class="message" id="success-message">Your message is successfully sent...
 							</div>
 							<div class="message" id="error-message">Sorry something went wrong</div>
 							<div class="form-group mb-0">
-								<button type="submit" class="btn">Contact me</button>
+								<button type="submit" class="btn" onclick="sendEmail()">Contact me</button>
 							</div>
 						</form>
 					</div>
@@ -735,7 +738,7 @@
 		</ul>
 	</div>
 
-	<!-- Animation Javascript  -->
+
 
 
 
